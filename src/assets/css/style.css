@@ -1,0 +1,97 @@
+body{
+    background-color: #333333;
+    color: white;
+}
+
+.Todos{
+    margin: 30px 0;
+}
+
+.Todos>div {
+    background: #444444;
+    padding: 30px 24px;
+    color: white;
+    margin-left: 0;
+    margin-right: 0px;
+}
+
+.Todos .input_group>div{
+    width: 48%;
+}
+
+.Todos .add_btn{
+    background-color: #ff9900;
+    color: white;
+    border-radius: 30px;
+    font-weight: 500;
+    margin-top: 16px;
+    padding: 8px 22px;
+}
+
+.Todos .add_btn:hover{
+    background-color: #e48900;
+}
+
+.input_group .form-label{
+    color: #ff9900;
+}
+
+.Todo_item .task_title{
+    color: #ff9900;
+}
+
+.Todo_item .task_description{
+    margin-bottom: 0;
+}
+
+.Todo_item .btn{
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding-left: 22px;
+    padding-right: 22px;
+    font-weight: 500;
+}
+
+.Todo_item .edit_btn{
+    border-color: #ff9900;
+    color: #ff9900;
+}
+
+.Todo_item .delete_btn{
+    border-color: red;
+    color: red;
+}
+
+.Todo_item .edit_btn:hover{
+    background-color: #ff9900;
+    color: white;
+}
+
+.Todo_item .delete_btn:hover{
+    background-color: red;
+    color: white;
+}
+
+.required_input{
+    color: red;
+    font-size: 13px;
+    display: none;
+}
+
+@media only screen and (max-width: 768px){
+    .Todos .add_btn{
+        width: 100%;
+    }
+
+    .Todos .input_group> div{
+        width: 100%;
+    }
+    .input_group> div:first-child{
+        margin-right: 0 !important;
+    }
+
+    .Todo_item>div{
+        margin: 5px 0;
+    }
+}

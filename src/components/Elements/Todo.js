@@ -1,10 +1,23 @@
 import { connect } from "react-redux";
-import { AddData, DeleteData, EditData } from "../../redux/actions";
+import { AddData, DeleteData, EditData, getData } from "../../redux/actions";
+import { Popconfirm } from 'antd';
+import { useEffect } from 'react';
+
 
 const Todo = (props) => {
 
-  const { data, Edit, Delete } = props;
- 
+
+  const { data, Edit, Delete, getData } = props;
+
+  const confirm = (d) => {
+    Delete(d.id) 
+  };
+
+  useEffect(() => {
+    getData()
+  }, [getData])
+
+
   return (
     data.map((d, i) => {
     return (
@@ -15,17 +28,26 @@ const Todo = (props) => {
         </div>
         <div className='btn_wrapper d-flex align-items-center'>
           <button onClick={() => Edit(d)} className='btn edit_btn me-2'>Edit</button>
-          <button onClick={() => {Delete(d)}} className='btn delete_btn'>Delete</button>
+          <Popconfirm
+            title="Are you sure to delete this task?"
+            onConfirm={() => {confirm(d)}}
+            placement="top"
+            okText="Yes"
+            cancelText="No"
+          >
+            <button className='btn delete_btn'>Delete</button>
+          </Popconfirm>
         </div>
       </div>
     );
-  }))
+  })
+  )
 };
 
-const mapStateToProps = ({ data }) => {
+const mapStateToProps = ({ state }) => {
   return {
-    data,
+    data: state.data,
   };
 };
 
-export default connect(mapStateToProps, { AddData, DeleteData, EditData })(Todo);
+export default connect(mapStateToProps, { AddData, DeleteData, EditData, getData })(Todo);

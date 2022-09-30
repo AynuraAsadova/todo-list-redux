@@ -18,8 +18,8 @@ const Todos = (props) => {
         setId(d.id)
     }
 
-    const Delete = (d) => {
-        DeleteData(d.id)
+    const Delete = (id) => {
+        DeleteData(id)
         setTitle("")
         setDescription("")
         setId(undefined)
@@ -27,24 +27,14 @@ const Todos = (props) => {
 
     const Save = () => {
         if(id){
-            let obj = {
-                id,
-                title, 
-                description
-            }
-            EditData(obj)
+            EditData(id, title, description)
             setTitle("")
             setDescription("")
             setId(undefined)
             setRequiredStyle("none")
         }
         else if (title !== "" && description !== ""){
-            let obj = {
-                id: Math.round(Math.random() * 2536498),
-                title,
-                description
-            }
-            AddData(obj)
+            AddData(title, description)
             setTitle("")
             setDescription("")
             setRequiredStyle("none")

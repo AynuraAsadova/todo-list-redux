@@ -79,6 +79,17 @@ body{
     display: none;
 }
 
+.popup{
+    background-color: white;
+    padding: 15px;
+    color: black;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    transform: translateX(-50%);
+}
+
 @media only screen and (max-width: 768px){
     .Todos .add_btn{
         width: 100%;
